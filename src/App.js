@@ -5,11 +5,11 @@ import { GoLightBulb } from 'react-icons/go'
 import './App.css'
 
 function App() {
-    const [advice, setAdvice] = useState({})
+    const [advice, setAdvice] = useState("")
 
     useEffect(() => {
         axios.get('https://api.adviceslip.com/advice').then((res) => {
-            setAdvice(res.data.slip)
+            setAdvice(res.data.slip.advice)
         })
     }, [])
 
@@ -22,7 +22,7 @@ function App() {
                     <GoLightBulb className="mr-2" />
                     <p className=" text-[#242424] text-md">Random Advice</p>
                 </div>
-                <p className="text-[#242424] text-2xl">{advice.advice}</p>
+                <p className="text-[#242424] text-2xl">{advice}</p>
             </div>
         </div>
     )
