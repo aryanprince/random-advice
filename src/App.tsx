@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { GoLightBulb } from 'react-icons/go'
+import { GoLightBulb, GoSync } from 'react-icons/go'
 
 function App() {
   type Advice = {
@@ -33,6 +33,13 @@ function App() {
           <p className="text-neutral-800 text-md">Random Advice</p>
         </div>
         <p className="text-neutral-800 text-2xl">{advice}</p>
+        <button
+          onClick={() => fetchAdvice()}
+          className="bg-white/25 px-4 py-2 rounded-lg text-sm w-fit flex items-center"
+        >
+          <GoSync className="mr-2" />
+          Click to refresh
+        </button>
       </div>
     </div>
   )
